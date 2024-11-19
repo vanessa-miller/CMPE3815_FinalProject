@@ -16,6 +16,8 @@ const float bentResist = 51000.0; // resistance at 90 deg
 void setup() {
   Serial.begin(9600);
   pinMode(flexPIN, INPUT);
+  myServo.attach(4);
+  myServo.write(0);
 }
 
 void loop() {
@@ -31,5 +33,8 @@ void loop() {
   Serial.println("Bend: " + String(angle) + " degrees");
   Serial.println();
 
-  delay(2000);
+  delay(150);
+  float mappedAngle = (angle * -1)*1.3;
+  Serial.println(mappedAngle);
+  myServo.write(mappedAngle);
 }
