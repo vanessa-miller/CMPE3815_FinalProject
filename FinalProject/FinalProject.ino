@@ -1,6 +1,7 @@
 /*
 MICROCONTROLLERS LAB X - FINAL PROJECT
-using flex sensors to measure hand movement and motors to move fingers to 
+Vanessa, Andrew, and RJ
+Using flex sensors to measure hand movement and motors to move fingers to 
 replicate the hand's movement.
 */
 
