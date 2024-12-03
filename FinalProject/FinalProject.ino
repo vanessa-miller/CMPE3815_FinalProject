@@ -80,5 +80,9 @@ void fingerAngle(int finger, int flexPIN, float straightResist, float bentResist
 //==========================================================================
 
 void loop() {
-  
+  fingerAngle(1, flexPIN1, straightR1, bentR1);
+  fingerAngle(2, flexPIN2, straightR2, bentR2);
+  fingerAngle(3, flexPIN3, straightR3, bentR3);
+  fingerAngle(4, flexPIN4, straightR4, bentR4);
+
 }
