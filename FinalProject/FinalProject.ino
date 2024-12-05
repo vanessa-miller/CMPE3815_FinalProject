@@ -23,14 +23,14 @@ const int flexPIN4 = A3; // output from flex sensor voltage divider for pinky
 
 const float R_DIV = 10000.0; // resistance of resistor
 
-const float straightR1 = 12988.76; // resistance when straight (index)
-const float bentR1 = 24328.86; // resistance at 90 deg (index)
-const float straightR2 = 1126666.80; // resistance when straight (middle)
-const float bentR2 = 2035999.90; // resistance at 90 deg (middle)
-const float straightR3 = 1695000.00; // resistance when straight (ring)
-const float bentR3 = 152380.94; // resistance at 90 deg (ring)
+const float straightR1 = 12885.90; // resistance when straight (index)
+const float bentR1 = 19912.28; // resistance at 90 deg (index)
+const float straightR2 = 12733.33; // resistance when straight (middle)
+const float bentR2 = 28603.78; // resistance at 90 deg (middle)
+const float straightR3 = 23651.32; // resistance when straight (ring)
+const float bentR3 = 48457.14; // resistance at 90 deg (ring)
 const float straightR4 = 29.41; // resistance when straight (pinky)
-const float bentR4 = 29.41; // resistance at 90 deg (pinky)
+const float bentR4 = 9.78; // resistance at 90 deg (pinky)
 
 //==========================================================================
 
@@ -46,10 +46,11 @@ void setup() {
   myServo2.attach(servoPIN2);
   myServo3.attach(servoPIN3);
   myServo4.attach(servoPIN4);
-  myServo1.write(0);
+
+  myServo1.write(110);
   myServo2.write(0);
-  myServo3.write(0);
-  myServo4.write(0);
+  myServo3.write(90);
+  myServo4.write(90);
 }
 
 //==========================================================================
@@ -69,10 +70,10 @@ void fingerAngle(int finger, int flexPIN, float straightResist, float bentResist
   Serial.println();
   
   // move the servo to move the robot finger
-  //if (finger == 1) myServo1.write(angle*2.43-12);
-  //if (finger == 2) myServo2.write(angle);
-  //if (finger == 3) myServo3.write(angle);
-  //if (finger == 4) myServo4.write(angle);
+  if (finger == 1) myServo1.write(110-1.2*angle);
+  if (finger == 2) myServo2.write(angle*1.15);
+  if (finger == 3) myServo3.write(90-angle*1.5);
+  if (finger == 4) myServo4.write(90-angle*1.5);
 }
 
 //==========================================================================
@@ -82,12 +83,9 @@ void loop() {
   fingerAngle(1, flexPIN1, straightR1, bentR1);
   fingerAngle(2, flexPIN2, straightR2, bentR2);
   fingerAngle(3, flexPIN3, straightR3, bentR3);
-  fingerAngle(4, flexPIN4, straightR4, bentR4);
-  
+  fingerAngle(4, flexPIN3, straightR3, bentR3);
 
-
-
-  delay(5000);
+  delay(5);
 
 
 }
