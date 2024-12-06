@@ -29,8 +29,8 @@ const float straightR2 = 12733.33; // resistance when straight (middle)
 const float bentR2 = 28603.78; // resistance at 90 deg (middle)
 const float straightR3 = 23651.32; // resistance when straight (ring)
 const float bentR3 = 48457.14; // resistance at 90 deg (ring)
-const float straightR4 = 29.41; // resistance when straight (pinky)
-const float bentR4 = 9.78; // resistance at 90 deg (pinky)
+const float straightR4 = 13092.55; // resistance when straight (pinky)
+const float bentR4 = 38483.41; // resistance at 90 deg (pinky)
 
 //==========================================================================
 
@@ -74,6 +74,7 @@ void fingerAngle(int finger, int flexPIN, float straightResist, float bentResist
   if (finger == 2) myServo2.write(angle*1.15);
   if (finger == 3) myServo3.write(90-angle*1.5);
   if (finger == 4) myServo4.write(90-angle*1.5);
+  
 }
 
 //==========================================================================
@@ -83,7 +84,7 @@ void loop() {
   fingerAngle(1, flexPIN1, straightR1, bentR1);
   fingerAngle(2, flexPIN2, straightR2, bentR2);
   fingerAngle(3, flexPIN3, straightR3, bentR3);
-  fingerAngle(4, flexPIN3, straightR3, bentR3);
+  fingerAngle(4, flexPIN4, straightR4, bentR4);
 
   delay(5);
 
