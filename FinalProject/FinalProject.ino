@@ -59,6 +59,7 @@ void setup() {
 // takes bend angle data from flex sensor and moves the corresponding robot finger
 void fingerAngle(int finger, int flexPIN, float straightResist, float bentResist) {
   // Read the ADC, and calculate voltage and resistance from it
+  // based on Jim Lindblom Flex Sensor SparkFun tutorial
   int flexADC = analogRead(flexPIN);
   float flexV = flexADC * 5.0 / 1023.0;
   float flexR = R_DIV * (5.0 / flexV - 1.0);
